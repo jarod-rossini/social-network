@@ -7,38 +7,27 @@
 	</head>
 	<body>
 		<main class="mainprofil">
-            <?php if(isset($_SESSION['message'])){echo $_SESSION['message'];} ?>
-			<form class="exit" method="post">
-				<input class="quit" name="quit" type="submit" value="Déconnexion"/>
-			</form>
-			<form class="replace" method="post">
-				<label for="login">Login : </label>
-					<input name="login" type="text" value="<?php if(isset($_SESSION['login'])){echo $_SESSION['login'];} ?>"/>
-				<label for="password">Mot de passe : </label>
-					<input name="password" type="password"/>
-				<input class="submit" name="change" type="submit" value="modifier"/>
-			</form>
-			<div>
-				<h2>Réservations</h2>
-				<table class="table-booking">
-					<thead>
-						<tr>
-							<th>Nom</th>
-							<th>Type</th>
-							<th>Début</th>
-							<th>Fin</th>
-						</tr>
-					</thead>
-					<tbody>
-							<?php
-								echo '<tr><td>'.$_SESSION['name'].'</td>';
-								echo '<td>'.$_SESSION['type'].'</td>';
-								echo '<td>'.$_SESSION['date_debut'].'</td>';
-								echo '<td>'.$_SESSION['date_fin'].'</td></tr>';
-							?>
-					</tbody>
-				</table>
-			</div>
+			<header>
+				<img src="" alt=""/>
+				<article class="bio">
+					<aside class="bio">
+						<h2>BIO</h2>
+						<a href=""><p class="link"></p></a>
+						<a href=""><p class="home"></p></a>
+					</aside>
+					<div class="pictures">
+						<p><strong>Pictures</strong></p>
+					</div>
+					<a href=""><p>- 104 Leaves -</p></a>
+					<button name="collect">Collect+</button>
+				</article>
+				<article class="description">
+					<p>Hello, I am new on Leaves, I hope you'll all like my posts. Collect me for me !</p>
+				</article>
+				<article class="timeline">
+
+				</article>
+			</header>
 		</main>
 	</body>
 </html>
