@@ -9,7 +9,7 @@ class Auth extends Controller
 {
     public function __construct()
     {
-        $connect = new Connect('', '','', '');
+        $connect = new Connect('localhost', 'socialnetwork','root', '');
         $this->pdo = $connect->getconnect();
 
         if(session_status() === PHP_SESSION_NONE){
