@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 19, 2021 at 12:20 PM
+-- Generation Time: May 20, 2021 at 12:06 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `socialnetwork`
 --
-CREATE DATABASE IF NOT EXISTS `socialnetwork` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `socialnetwork`;
 
 -- --------------------------------------------------------
 
@@ -66,7 +64,8 @@ CREATE TABLE IF NOT EXISTS `post` (
   `post` mediumtext NOT NULL,
   `image` int(11) DEFAULT NULL,
   `date` date NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -99,7 +98,8 @@ CREATE TABLE IF NOT EXISTS `room` (
   `name` tinytext NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_message` int(11) NOT NULL,
-  KEY `id_user` (`id_user`,`id_message`)
+  KEY `id_user` (`id_user`),
+  KEY `id_message` (`id_message`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -111,6 +111,7 @@ CREATE TABLE IF NOT EXISTS `room` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `statut` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -120,6 +121,43 @@ CREATE TABLE IF NOT EXISTS `user` (
   `profil_cover` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `like`
+--
+ALTER TABLE `like`
+  ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `post_response`
+--
+ALTER TABLE `post_response`
+  ADD CONSTRAINT `post_response_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `post_response_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `room`
+--
+ALTER TABLE `room`
+  ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`id_message`) REFERENCES `message` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `room_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
