@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 20, 2021 at 12:06 PM
+-- Generation Time: May 20, 2021 at 02:18 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -115,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `birthdate` date NOT NULL,
   `bio` tinytext,
   `profil_pic` int(11) DEFAULT NULL,
