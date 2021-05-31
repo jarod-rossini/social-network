@@ -28,4 +28,7 @@ $router->post('/inscription', 'App\Controller\Auth#postSignup');
 $router->get('/profil', 'App\Controller\User#profil');
 $router->post('/profil', 'App\Controller\Auth#postProfil');
 
+$router->get('/chat', 'App\Controller\User#chat');
+$router->post('/chatphp', 'App\Controller\Network#postChat');
+
 $router->run();

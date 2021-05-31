@@ -20,4 +20,9 @@ class User extends Controller
     {
         $this->layout(Autoloader::autoload('view/profil.view'));
     }
+
+    public function chat()
+    {
+        $this->layout(Autoloader::autoload('view/chat.view'));
+    }
 }
