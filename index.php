@@ -19,8 +19,9 @@ $router->get('/', 'App\Controller\Controller#indexView');
 $router->get('/index', 'App\Controller\Controller#indexView');
 $router->get('/accueil', 'App\Controller\Controller#indexView');
 
+$router->post('/connexion', 'App\Controller\login.php');
 $router->get('/connexion', 'App\Controller\User#signin');
-$router->post('/connexion', 'App\Controller\Auth#postSignin');
+//$router->post('/connexion', 'App\Controller\Auth#postSignin');
 
 $router->post('/inscription', 'App\Controller\register.php');
 $router->get('/inscription', 'App\Controller\User#signup');
