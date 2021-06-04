@@ -28,4 +28,5 @@ $router->post('/inscription', 'App\Controller\Auth#postSignup');
 $router->get('/profil', 'App\Controller\User#profil');
 $router->post('/profil', 'App\Controller\Auth#postProfil');
 
+
 $router->run();
