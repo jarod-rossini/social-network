@@ -22,8 +22,9 @@ $router->get('/accueil', 'App\Controller\Controller#indexView');
 $router->get('/connexion', 'App\Controller\User#signin');
 $router->post('/connexion', 'App\Controller\Auth#postSignin');
 
+$router->post('/inscription', 'App\Controller\register.php');
 $router->get('/inscription', 'App\Controller\User#signup');
-$router->post('/inscription', 'App\Controller\Auth#postSignup');
+//$router->post('/inscription', 'App\Controller\Auth#postSignup');
 
 $router->get('/profil', 'App\Controller\User#profil');
 $router->post('/profil', 'App\Controller\Auth#postProfil');

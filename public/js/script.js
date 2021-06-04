@@ -45,7 +45,6 @@ $(document).ready(function(){
         let birthdate = document.getElementById('birthdate').value;
         $.ajax({
             url: 'app/controller/register.php',
-            //^------url correct, problème au niveau du mvc, issue envoyé à jarod
             type: 'POST',
             data: {
                 name: name,
@@ -54,15 +53,15 @@ $(document).ready(function(){
                 password:password,
                 birthdate:birthdate
             },
-            dataType: 'text',
+            dataType: 'JSON',
 
             success: function (data){
                 console.log(data);
                 var success = data['success'];
                 if(success == true) {
-                    $('#formlogin').submit();
                     console.table(data);
                     alert("vous etes inscrit");
+                    $('#formreg').submit();
                 }
                 else if(success == false){
                     console.error('Email déjà enregistrer');

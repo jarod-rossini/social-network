@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Model\Connect;
 use PDO;
-require_once ('Controller.php');
 
 class Auth extends Controller
 {
@@ -17,7 +16,6 @@ class Auth extends Controller
             session_start();
         }
     }
-
 
     public function postSignin()
     {   
@@ -43,35 +41,7 @@ class Auth extends Controller
      */
     public function postSignup($name, $surname, $email, $pass, $birthdate)
     {
-        /**$table = $this->pdo->query('SELECT COUNT(*) FROM utilisateurs WHERE login="'.$_POST['login'].'"');
-        $result = $table->fetchColumn();
-        $name = trim(htmlspecialchars($_POST['name']));
-        $surname = trim(htmlspecialchars($_POST['surname']));
-        $email = trim(htmlspecialchars($_POST['email']));
-        $pass = trim(htmlspecialchars($_POST['password']));
-        $birthdate = $_POST['birthdate'];*/
-        //check email
-        $emailcheck = "SELECT `email` FROM `user` WHERE `email` = $email";
-        $check = $this->pdo->prepare($emailcheck);
-        $check->execute();
-        $used = $check->rowCount();
-        if ($used === 0){
-            //^----pas de résultat, donc on continu
-            $hashpass = password_hash($pass, PASSWORD_BCRYPT);
-            $sql = "INSERT INTO `user`(`name`, `surname`, `email`, `password`, `birthdate`) VALUES ($name, $surname, $email, $hashpass, $birthdate)";
-            $requete = $this->pdo->prepare($sql);
-            $requete->execute();
-            //$this->createSession();
-            //$_SESSION['message'] = '<p class="connected">Connexion effectuée</p>';
-            $result = true;
-            echo json_encode(array("success"=>$result));
-            //return header('location:profil');
-        }
-        else{
-            // "email dejà inscrit"
-            $result = false;
-            echo json_encode(array("success"=>$result));
-        }
+
     }
 
     /**
