@@ -53,7 +53,7 @@ $(document).ready(function(){
                 password:password,
                 birthdate:birthdate
             },
-            dataType: 'JSON',
+            dataType: 'text',
 
             success: function (data){
                 console.log(data);
