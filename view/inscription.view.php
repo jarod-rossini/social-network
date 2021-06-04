@@ -35,6 +35,6 @@
             if(isset($_SESSION['message'])){echo $_SESSION['message'];} ?>
 		</main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="public/js/script.js"></script>
+        <script src="public/js/signup.js"></script>
 	</body>
 </html>
