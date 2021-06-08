@@ -2,9 +2,9 @@ $(document).ready(function() {
     console.log('App is ready');
 
     document.getElementById('formlogin').addEventListener('submit', (e) => {
-            e.preventDefault();
-            let email = document.getElementById('email').value;
-            let password = document.getElementById('password').value;
+        e.preventDefault();
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
         $.ajax({
             url: 'app/controller/login.php',
             method: 'POST',
