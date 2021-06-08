@@ -28,17 +28,19 @@ if($checkuser === 1){
         $_SESSION = $user;
         //var_dump($_SESSION);
         // $result needed pour script
-        $result = true;
-        echo json_encode(array("success"=>$result));
+        echo ('ok connecté !');
+        //echo json_encode(array("success"=>$result));
     }
     else{
         // $result needed pour script
-        $result = false;
-        echo json_encode(array("success"=>$result));
+        //$result = false;
+        //echo json_encode(array("success"=>$result));
+        echo ('log incorrect');
     }
 }
 else{
     // $result needed pour script
-    $result = false;
-    echo json_encode(array("success"=>$result));
+    //$result = false;
+    //echo json_encode(array("success"=>$result));
+    echo ('utilisateur introuvable');
 }
