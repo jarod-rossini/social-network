@@ -9,7 +9,6 @@ $pass = trim(htmlspecialchars($_POST['password']));
 $birthdate = $_POST['birthdate'];
 $statut = 42;
 
-$message = array() ;
 
 if (!empty($name) && !empty($surname) && !empty($email) && !empty($pass) && !empty($birthdate)){
     // check email
@@ -30,20 +29,13 @@ if (!empty($name) && !empty($surname) && !empty($email) && !empty($pass) && !emp
         $requete->bindParam('hashpass', $hashpass);
         $requete->bindParam('birthdate', $birthdate);
         $requete->execute();
-        //$this->createSession();
-        //$_SESSION['message'] = '<p class="connected">Connexion effectuée</p>';
-        $result = true;
-        echo json_encode(array("success"=>$result));
-        //return header('location:profil');
+        echo('vous êtes inscrit');
     }
     else{
         // "email dejà inscrit"
-        $result = false;
-        echo json_encode(array("success"=>$result));
+        echo ('Email déjà prit');
     }
 }
 else{
-    $message['message'] = 'Veuillez remplir tous les champs' ;
+    echo ('Veuillez remplir tous les champs');
 }
-
-echo json_encode($message) ;
