@@ -8,7 +8,7 @@ $(document).ready(function(){
      */
 
     /**
-    document.getElementById('formreg').addEventListener('submit', (e) => {
+     document.getElementById('formreg').addEventListener('submit', (e) => {
     e.preventDefault();
     //  récupérer la valeur des input
     let name = document.getElementById('name');
