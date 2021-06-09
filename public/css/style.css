@@ -1,8 +1,9 @@
 body{
 	margin: 0;
-	padding: none;
+	padding: 0;
 	display: flex;
 	flex-wrap: wrap;
+	background-color: #c5fabc;
 }
 
 a{text-decoration: none;}
@@ -10,7 +11,54 @@ a{text-decoration: none;}
 /*INDEX*/
 
 /*INSCRIPTION*/
-
+.maininscription {
+	font-family: 'Poppins', sans-serif;
+	overflow-x: hidden;
+}
+.wave {
+	position: fixed;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+}
+.container-inscription {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 7rem;
+	padding: 0 2rem;
+}
+.img {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.img img {
+	width: 500px;
+}
+.reg-container {
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+#formreg {
+	width: 360px;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2), inset 0 0 200px rgb(187, 255, 170);
+	background-color: #57AE42;
+	border-radius: 5px;
+	padding: 20px 0;
+}
+#formreg input {
+	background-color: rgb(197, 252, 184);
+	border: #C5FCB8 1px solid;
+	border-radius: 1em;
+	color: #35712e;
+}
+.avatar {
+	width: 100px;
+}
 /*CONNEXION*/
 
 /*PROFIL*/
